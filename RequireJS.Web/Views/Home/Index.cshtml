@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@section scripts {
+
+    @*<script src="~/Scripts/app/calculate1.js"></script>*@
+    @*<script src="~/Scripts/app/calculate2.js"></script>*@
+    @*<script src="~/Scripts/app/calculate3.js"></script>*@
+    @*<script src="~/Scripts/app/calculate4.js"></script>*@
+    @*<script src="~/Scripts/app/calculate5.js"></script>*@
+
+    @*<script src="~/Scripts/app/calculate6/calculator.js"></script>
+        <script src="~/Scripts/app/calculate6/form.js"></script>*@
+
+    <script src="~/Scripts/require.js"></script>
+    <script type="text/javascript">
+        var baseURL = '@Url.Content("~")';
+        requirejs([baseURL + 'scripts/config.js'], function (common) {
+            requirejs(['app/calculate7/form']);
+        });
+    </script>
+
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="validationContainer"></div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">
+        <input id="input1" type="number" class="form-control" />
+    </div>
+    <div class="col-md-1">
+        <select id="operationSelector" class="form-control">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+    </div>
+
+    <div class="col-md-2">
+        <input id="input2" type="number" class="form-control" />
+    </div>
+    <div class="col-md-2">
+        <button id="calculateButton" type="button" class="btn btn-primary">Caclulate</button>
+    </div>
+    <div class="col-md-2">
+        <strong>Result: </strong><span id="result"></span>
+    </div>
+</div>
